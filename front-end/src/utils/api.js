@@ -1,6 +1,4 @@
-// src/utils/api.js
-
-const BASE_URL = 'http://localhost:8080/api'; // Change if deploying
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export const apiRequest = async (endpoint, method = 'GET', data = null, token = null) => {
     const options = {
@@ -13,7 +11,7 @@ export const apiRequest = async (endpoint, method = 'GET', data = null, token = 
     };
 
     try {
-        const response = await fetch(`${BASE_URL}${endpoint}`, options);
+        const response = await fetch(`${BASE_URL}/api${endpoint}`, options);
         const result = await response.json();
 
         if (!response.ok) {
