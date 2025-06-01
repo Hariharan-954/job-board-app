@@ -20,6 +20,11 @@ app.use(cors({
 // JSON parsing
 app.use(express.json());
 
+// ✅ Health check route
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'API is healthy 🚀' });
+});
+
 // Connect to DB and start server
 connectDB().then(() => {
   app.use('/api/jobs', jobRoutes);
