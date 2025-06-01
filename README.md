@@ -4,7 +4,6 @@ A full-stack Job Board web application built with the **MERN stack** (MongoDB, E
 
 ## 📸 Screenshots
 
-> _You can add screenshots here for the homepage, job listing, and apply modal._
 
 ---
 
