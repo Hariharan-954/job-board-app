@@ -39,7 +39,7 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const encrypted = encryptCredentials(formData);
+      const encrypted = await encryptCredentials(formData);
       const response = await authService.login(encrypted);
 
       if (response.token) {
