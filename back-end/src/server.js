@@ -6,6 +6,7 @@ import { connectDB } from './config/db.js';
 import { router as jobRoutes } from './routes/job-routes.js';
 import { router as loginRoute } from './routes/authorization-routes.js';
 
+
 dotenv.config(); // Load environment variables
 
 const app = express();
@@ -16,6 +17,9 @@ app.use(cors({
   origin: '*',
   credentials: true,
 }));
+
+// Log Node.js version
+console.log('Node.js version:', process.version);
 
 // JSON parsing
 app.use(express.json());
