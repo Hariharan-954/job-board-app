@@ -14,6 +14,7 @@ const Unauthorized = () => {
         alignItems: 'center',
         px: 2, // responsive horizontal padding
         textAlign: 'center',
+        
       }}
     >
       <Box>
