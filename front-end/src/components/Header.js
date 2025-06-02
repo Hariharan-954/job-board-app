@@ -43,14 +43,14 @@ const Header = ({refreshPostedJobs}) => {
         setConfirmDialog((prev) => ({ ...prev, open: false }));
         setTimeout(() => {
           localStorage.clear();
-          navigate('/login', { replace: true });
+          navigate('/job-board/login', { replace: true });
           window.location.reload();
         }, 1000);
       },
     });
   };
 
-  const handleLogin = () => navigate('/login');
+  const handleLogin = () => navigate('/job-board/login');
 
   const NavButton = ({ to, label }) => {
     const isActive = location.pathname === to;
@@ -106,9 +106,9 @@ const Header = ({refreshPostedJobs}) => {
           <Stack direction="row" spacing={3} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
             {isAuthenticated && role === 'jobSeeker' && (
               <>
-                <NavButton to="/jobList" label="Job List" />
-                <NavButton to="/appliedJobs" label="Applied Jobs" />
-                <NavButton to="/savedJobs" label="Saved Jobs" />
+                <NavButton to="/job-board/jobList" label="Job List" />
+                <NavButton to="/job-board/appliedJobs" label="Applied Jobs" />
+                <NavButton to="/job-board/savedJobs" label="Saved Jobs" />
               </>
             )}
 
@@ -121,7 +121,7 @@ const Header = ({refreshPostedJobs}) => {
                 >
                   Post Job
                 </Button>
-                <NavButton to="/postedJobs" label="Posted Jobs" />
+                <NavButton to="/job-board/postedJobs" label="Posted Jobs" />
               </>
             )}
 
@@ -161,22 +161,22 @@ const Header = ({refreshPostedJobs}) => {
             {isAuthenticated && role === 'jobSeeker' && [
               <MenuItem
                 key="jobList"
-                disabled={location.pathname === '/jobList'}
-                onClick={() => { navigate('/jobList'); handleClose(); }}
+                disabled={location.pathname === '/job-board/jobList'}
+                onClick={() => { navigate('/job-board/jobList'); handleClose(); }}
               >
                 Job List
               </MenuItem>,
               <MenuItem
                 key="appliedJobs"
-                disabled={location.pathname === '/appliedJobs'}
-                onClick={() => { navigate('/appliedJobs'); handleClose(); }}
+                disabled={location.pathname === '/job-board/appliedJobs'}
+                onClick={() => { navigate('/job-board/appliedJobs'); handleClose(); }}
               >
                 Applied Jobs
               </MenuItem>,
               <MenuItem
                 key="savedJobs"
-                disabled={location.pathname === '/savedJobs'}
-                onClick={() => { navigate('/savedJobs'); handleClose(); }}
+                disabled={location.pathname === '/job-board/savedJobs'}
+                onClick={() => { navigate('/job-board/savedJobs'); handleClose(); }}
               >
                 Saved Jobs
               </MenuItem>,
@@ -187,8 +187,8 @@ const Header = ({refreshPostedJobs}) => {
               </MenuItem>,
               <MenuItem
                 key="postedJobs"
-                disabled={location.pathname === '/postedJobs'}
-                onClick={() => { navigate('/postedJobs'); handleClose(); }}
+                disabled={location.pathname === '/job-board/postedJobs'}
+                onClick={() => { navigate('/job-board/postedJobs'); handleClose(); }}
               >
                 Posted Jobs
               </MenuItem>,

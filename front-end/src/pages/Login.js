@@ -49,7 +49,7 @@ export default function Login() {
         setTimeout(() => {
           localStorage.setItem('userToken', response.token);
           localStorage.setItem('isAuthenticated', 'true');
-          navigate('/select-role');
+          navigate('/job-board/select-role');
         }, 1000);
       } else if (response.status === "invalid") {
         setSnackbar({ open: true, message: 'Invalid email or password', severity: 'error' });

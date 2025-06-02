@@ -28,7 +28,7 @@ const SavedJobs = () => {
                     </Typography>
                     <Button
                         variant="contained"
-                        onClick={() => navigate('/jobList')}
+                        onClick={() => navigate('/job-board/jobList')}
                         sx={{
                             backgroundColor: 'darkblue',
                             color: 'white',

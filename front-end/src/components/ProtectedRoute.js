@@ -47,8 +47,8 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     );
   }
 
-  if (isValid === 'unauthorized') return <Navigate to="/unauthorized" replace />;
-  if (isValid === false) return <Navigate to="/login" replace />;
+  if (isValid === 'unauthorized') return <Navigate to="/job-board/unauthorized" replace />;
+  if (isValid === false) return <Navigate to="/job-board/login" replace />;
 
   return children;
 };

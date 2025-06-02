@@ -1,8 +1,12 @@
 {
   "name": "job-board-front-end",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "/job-board",
+  "author": "Hariharan G.S",
+  "license": "MIT",
+  "engines": {
+    "node": "20.13.1"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

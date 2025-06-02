@@ -10,10 +10,9 @@ import { BrowserRouter } from 'react-router';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store} >
-    <BrowserRouter basename='/job-board' >
+    <BrowserRouter>
       <App />
     </BrowserRouter>
-
   </Provider>
 );
 

@@ -54,7 +54,7 @@ export default function Home() {
             <Button
               variant="contained"
               size="large"
-              onClick={() => navigate('/jobList')}
+              onClick={() => navigate('/job-board/jobList')}
               sx={{ backgroundColor: 'white', color: '#2575fc', fontWeight: 600 }}
             >
               Explore Jobs
@@ -62,7 +62,7 @@ export default function Home() {
             <Button
               variant="outlined"
               size="large"
-              onClick={() => navigate('/appliedJobs')}
+              onClick={() => navigate('/job-board/appliedJobs')}
               sx={{ borderColor: 'white', color: 'white', fontWeight: 600 }}
             >
               Applied Jobs
@@ -83,7 +83,7 @@ export default function Home() {
             <Button
               variant="outlined"
               size="large"
-              onClick={() => navigate('/postedJobs')}
+              onClick={() => navigate('/job-board/postedJobs')}
               sx={{ borderColor: 'white', color: 'white', fontWeight: 600 }}
             >
               Manage Jobs
@@ -96,19 +96,12 @@ export default function Home() {
             <Button
               variant="contained"
               size="large"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate('/job-board/login')}
               sx={{ backgroundColor: 'white', color: '#2575fc', fontWeight: 600 }}
             >
               Get Started
             </Button>
-            {/* <Button
-              variant="outlined"
-              size="large"
-              onClick={() => navigate('/login')}
-              sx={{ borderColor: 'white', color: 'white', fontWeight: 600 }}
-            >
-              Login
-            </Button> */}
+
           </Stack>
         )}
       </Container>

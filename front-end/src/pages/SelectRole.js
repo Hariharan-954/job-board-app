@@ -14,9 +14,9 @@ export default function SelectRole() {
 
       // Navigate to the appropriate page based on the selected role
       if (role === 'jobSeeker') {
-        navigate('/jobList'); // Navigate to the job list page for jobseekers
+        navigate('/job-board/jobList'); // Navigate to the job list page for jobseekers
       } else if (role === 'recruiter') {
-        navigate('/postedJobs'); // Navigate to posted jobs for recruiters
+        navigate('/job-board/postedJobs'); // Navigate to posted jobs for recruiters
       }
     }, 1000); // Simulate a delay before redirect
   };

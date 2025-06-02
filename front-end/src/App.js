@@ -1,4 +1,3 @@
-// App.js
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,7 +9,7 @@ import SavedJobs from './pages/SavedJobs';
 import SelectRole from './pages/SelectRole';
 import ProtectedRoute from './components/ProtectedRoute';
 import NotFound from './pages/NotFound';
-import Unauthorized from './pages/Unauthorized'; // Add this page
+import Unauthorized from './pages/Unauthorized';
 
 function App() {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
@@ -23,22 +22,22 @@ function App() {
           <Route index element={<Home />} />
 
           <Route
-            path="/login"
+            path="/job-board/login"
             element={
               isAuthenticated ? (
-                role === 'jobSeeker' ? <Navigate to="/jobList" /> : <Navigate to="/postedJobs" />
+                role === 'jobSeeker' ? <Navigate to="/job-board/jobList" /> : <Navigate to="/job-board/postedJobs" />
               ) : (
                 <Login />
               )
             }
           />
 
-          <Route path="/select-role" element={<SelectRole />} />
-          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/job-board/select-role" element={<SelectRole />} />
+          <Route path="/job-board/unauthorized" element={<Unauthorized />} />
 
-          {/* Only job seekers */}
+          {/* Job Seeker Routes */}
           <Route
-            path="/jobList"
+            path="/job-board/jobList"
             element={
               <ProtectedRoute allowedRoles={['jobSeeker']}>
                 <JobList />
@@ -46,7 +45,7 @@ function App() {
             }
           />
           <Route
-            path="/appliedJobs"
+            path="/job-board/appliedJobs"
             element={
               <ProtectedRoute allowedRoles={['jobSeeker']}>
                 <AppliedJobs />
@@ -54,7 +53,7 @@ function App() {
             }
           />
           <Route
-            path="/savedJobs"
+            path="/job-board/savedJobs"
             element={
               <ProtectedRoute allowedRoles={['jobSeeker']}>
                 <SavedJobs />
@@ -62,9 +61,9 @@ function App() {
             }
           />
 
-          {/* Only recruiters */}
+          {/* Recruiter Routes */}
           <Route
-            path="/postedJobs"
+            path="/job-board/postedJobs"
             element={
               <ProtectedRoute allowedRoles={['recruiter']}>
                 <PostedJobs />
