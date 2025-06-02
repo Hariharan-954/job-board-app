@@ -5,11 +5,14 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-   "start": "node ./src/server.js",
+    "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Hariharan G.S",
+  "license": "MIT",
+  "engines": {
+    "node": "20.13.1"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
