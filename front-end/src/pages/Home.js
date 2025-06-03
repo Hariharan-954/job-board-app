@@ -7,10 +7,9 @@ export default function Home() {
   const userRole = localStorage.getItem('role'); // 'jobSeeker' | 'recruiter' | null
 
   const features = [
+    { title: 'Search & Filter Jobs', description: 'Find jobs tailored to your skills using advanced filters.' },
     { title: 'Explore Jobs', description: 'Find jobs that match your skills and goals.' },
     { title: 'Post Openings', description: 'Recruiters can post jobs and manage applicants.' },
-    { title: 'Save Listings', description: 'Bookmark jobs to revisit later.' },
-    { title: 'Track Applications', description: 'Easily monitor the status of your applications.' },
   ];
 
   return (
