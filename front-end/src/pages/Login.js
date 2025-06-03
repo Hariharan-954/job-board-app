@@ -7,22 +7,26 @@ import {
   Box,
   CircularProgress,
   Paper,
+  IconButton,
+  InputAdornment,
 } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
 import { encryptCredentials } from '../utils/encrypt';
-import SnackbarAlert from '../components/SnackbarAlert'; // Import your reusable SnackbarAlert
+import SnackbarAlert from '../components/SnackbarAlert';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'error' });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: '' }); // Clear error on input change
+    setErrors({ ...errors, [e.target.name]: '' });
   };
 
   const validate = () => {
@@ -44,14 +48,12 @@ export default function Login() {
 
       if (response.token) {
         setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
-
-        // Wait so user can see snackbar before redirect
         setTimeout(() => {
           localStorage.setItem('userToken', response.token);
           localStorage.setItem('isAuthenticated', 'true');
           navigate('/job-board/select-role');
         }, 1000);
-      } else if (response.status === "invalid") {
+      } else if (response.status === 'invalid') {
         setSnackbar({ open: true, message: 'Invalid email or password', severity: 'error' });
       } else {
         setSnackbar({ open: true, message: 'An error occurred during login', severity: 'error' });
@@ -63,6 +65,8 @@ export default function Login() {
       setLoading(false);
     }
   };
+
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   return (
     <Box
@@ -90,16 +94,26 @@ export default function Login() {
             error={!!errors.email}
             helperText={errors.email}
           />
+
           <TextField
             label="Password"
             name="password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             fullWidth
             margin="normal"
             value={formData.password}
             onChange={handleChange}
             error={!!errors.password}
             helperText={errors.password}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={toggleShowPassword} edge="end">
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
 
           <Button
@@ -114,7 +128,6 @@ export default function Login() {
         </form>
       </Paper>
 
-      {/* Use reusable SnackbarAlert component */}
       <SnackbarAlert
         open={snackbar.open}
         handleClose={() => setSnackbar({ ...snackbar, open: false })}
