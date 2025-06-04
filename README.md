@@ -11,8 +11,8 @@ A full-stack Job Board web application built with the **MERN stack** (MongoDB, E
 
 - ✅ User authentication (Register/Login)
 - ✅ JWT-secured protected routes
-- ✅ Role-based access (Admin & User)
-- ✅ Post, edit, delete jobs (Admin)
+- ✅ Role-based access (Recruiter & User)
+- ✅ Post, edit, delete jobs (Recruiter)
 - ✅ Search, filter, and view job details
 - ✅ Apply to jobs with resume upload
 - ✅ View applied jobs list
