@@ -26,6 +26,7 @@ app.use(express.json());
 
 // ✅ Health check route
 app.get('/health', (req, res) => {
+  console.log(`[${new Date().toISOString()}] 🟢 /health check accessed`);
   res.status(200).json({ status: 'OK', message: 'API is healthy 🚀' });
 });
 
