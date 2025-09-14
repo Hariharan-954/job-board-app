@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
         const { email = '', password = '' } = decryptedData;
 
         if (email === process.env.DEMO_EMAIL && password === process.env.DEMO_PASSWORD) {
-            const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
             wrappedConsole('/login', 'POST', 'success');
             return res.status(200).json({ status: 'success', token });
